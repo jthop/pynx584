@@ -38,6 +38,12 @@ class Client(object):
             params={'cmd': 'disarm',
                     'master_pin': master_pin})
         return r.status_code == 200
+    
+    def chime(self):
+        r = self.session.get(
+            self._url + '/command',
+            params={'cmd': 'chime'})
+        return r.status_code == 200
 
     def set_bypass(self, zone, bypass):
         data = {'bypassed': bypass}
