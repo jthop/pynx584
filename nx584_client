@@ -47,7 +47,7 @@ def do_arm(clnt, args):
 
 
 def do_chime(clnt, args):
-    clnt.disarm()
+    clnt.chime()
     
     
 def do_disarm(clnt, args):
