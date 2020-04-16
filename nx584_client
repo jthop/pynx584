@@ -46,6 +46,10 @@ def do_arm(clnt, args):
     clnt.arm(mode)
 
 
+def do_chime(clnt, args):
+    clnt.disarm()
+    
+    
 def do_disarm(clnt, args):
     if not args.master:
         print('Master pin required')
@@ -150,6 +154,8 @@ def main():
         do_list(clnt, args)
     elif args.command in ['arm', 'arm-stay', 'arm-exit', 'arm-auto']:
         do_arm(clnt, args)
+    elif args.command == 'chime':
+        do_chime(clnt, args)
     elif args.command == 'disarm':
         do_disarm(clnt, args)
     elif args.command == 'partitions':
