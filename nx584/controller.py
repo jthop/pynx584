@@ -272,9 +272,6 @@ class NXController(object):
         self._queue.append([0x3C] +
                            make_pin_buffer(master_pin) +
                            [0x01, partition])
-
-    def disarm(self, partition=1):
-        self._queue.append([0x3E, 0x01, partition])
         
     def zone_bypass_toggle(self, zone):
         self._queue.append([0x3F, zone - 1])
