@@ -258,7 +258,7 @@ class NXController(object):
         if 'Chome mode on' not in self.partitions[partition].self.condition_flags:
             self._queue.append([0x3E, 0x01, partition])
 
-    def chime_on(self, partition=1):
+    def chime_off(self, partition=1):
         if 'Chome mode on' in self.partitions[partition].self.condition_flags:
             self._queue.append([0x3E, 0x01, partition])
         
