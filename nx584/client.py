@@ -45,6 +45,18 @@ class Client(object):
             params={'cmd': 'chime'})
         return r.status_code == 200
 
+    def chime_on(self):
+    r = self._session.get(
+        self._url + '/command',
+        params={'cmd': 'chime_on'})
+    return r.status_code == 200
+
+    def chime_off(self):
+    r = self._session.get(
+        self._url + '/command',
+        params={'cmd': 'chime_off'})
+    return r.status_code == 200
+
     def set_bypass(self, zone, bypass):
         data = {'bypassed': bypass}
         r = self._session.put(self._url + '/zones/%i' % zone,
