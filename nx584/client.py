@@ -40,7 +40,7 @@ class Client(object):
         return r.status_code == 200
     
     def chime(self):
-        r = self.session.get(
+        r = self._session.get(
             self._url + '/command',
             params={'cmd': 'chime'})
         return r.status_code == 200
