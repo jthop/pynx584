@@ -76,6 +76,10 @@ def command():
             CONTROLLER.arm_auto()
     elif args.get('cmd') == 'chime':
         CONTROLLER.chime()
+    elif args.get('cmd') == 'chime_on':
+        CONTROLLER.chime_on()
+    elif args.get('cmd') == 'chime_off':
+        CONTROLLER.chime_off()
     elif args.get('cmd') == 'disarm':
         CONTROLLER.disarm(args.get('master_pin'))
     return flask.Response()
