@@ -8,7 +8,8 @@ from nx584 import api
 from nx584 import controller
 
 LOG_FORMAT = '%(asctime)-15s %(module)s %(levelname)s %(message)s'
-
+LOG_LEVEL = logging.INFO
+SYSLOG_HANDLER = logging.handlers.SysLogHandler(address = '/dev/log')
 
 def main():
     parser = argparse.ArgumentParser()
@@ -17,9 +18,6 @@ def main():
                         help='Path to config file')
     parser.add_argument('--debug', default=False, action='store_true',
                         help='Enable debug')
-    parser.add_argument('--log', default=None,
-                        metavar='FILE',
-                        help='Path to log file')
     parser.add_argument('--connect', default=None,
                         metavar='HOST:PORT',
                         help='Host and port to connect for serial stream')
@@ -56,13 +54,10 @@ def main():
         verbose_handler.setLevel(args.debug and logging.DEBUG or logging.INFO)
         LOG.addHandler(verbose_handler)
 
-    if args.log:
-        log_handler = logging.handlers.RotatingFileHandler(
-            args.log,
-            maxBytes=1024*1024*10,
-            backupCount=3)
+    if SYSLOG_HANDLER:
+        log_handler = SYSLOG_HANDLER
         log_handler.setFormatter(formatter)
-        log_handler.setLevel(logging.INFO)
+        log_handler.setLevel(LOG_LEVEL)
         LOG.addHandler(log_handler)
 
     LOG.info('Ready')
