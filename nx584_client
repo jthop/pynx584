@@ -50,10 +50,10 @@ def do_chime(clnt, args):
     clnt.chime()
 
 def do_chime_on(clnt, args):
-clnt.chime_on()
+    clnt.chime_on()
 
 def do_chime_off(clnt, args):
-clnt.chime_off()
+    clnt.chime_off()
     
 def do_disarm(clnt, args):
     if not args.master:
