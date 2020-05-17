@@ -48,7 +48,12 @@ def do_arm(clnt, args):
 
 def do_chime(clnt, args):
     clnt.chime()
-    
+
+def do_chime_on(clnt, args):
+clnt.chime_on()
+
+def do_chime_off(clnt, args):
+clnt.chime_off()
     
 def do_disarm(clnt, args):
     if not args.master:
@@ -156,6 +161,10 @@ def main():
         do_arm(clnt, args)
     elif args.command == 'chime':
         do_chime(clnt, args)
+    elif args.command == 'chime-on':
+        do_chime_on(clnt, args)
+    elif args.command == 'chime-off':
+        do_chime_off(clnt, args)
     elif args.command == 'disarm':
         do_disarm(clnt, args)
     elif args.command == 'partitions':
