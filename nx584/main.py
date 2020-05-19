@@ -6,9 +6,9 @@ from nx584 import api
 from nx584 import controller
 
 #custom standardized logging
-import nx584.log_config
-LOG = log_config.LOGGER
-LOG.info('starting pynx584 controller')
+import nx584.log_config as _log
+LOG = _log.LOGGER
+LOG.info('starting pynx584 main')
 
 def main():
     parser = argparse.ArgumentParser()
