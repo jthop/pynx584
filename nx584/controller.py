@@ -6,6 +6,7 @@ import datetime
 import serial
 import socket
 import time
+import logging
 
 import stevedore.extension
 
@@ -13,10 +14,10 @@ from nx584 import event_queue
 from nx584 import mail
 from nx584 import model
 
+import logging
+
 #custom standardized logging
-import nx584.log_config as _log
-LOG = _log.LOGGER
-LOG.info('starting pynx584 controller')
+LOG = logging.getLogger(__name__)
 
 
 def parse_ascii(data):
