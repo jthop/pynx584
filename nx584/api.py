@@ -76,7 +76,12 @@ def command():
         else:
             CONTROLLER.arm_auto()
     elif args.get('cmd') == 'chime':
-        CONTROLLER.chime()
+        if args.get('state') == 'on':
+            CONTROLLER.chime_on()
+        elif args.get('state') == 'off':
+            CONTROLLER.chime_off()
+        else:
+            CONTROLLER.chime()
     elif args.get('cmd') == 'chime_on':
         CONTROLLER.chime_on()
     elif args.get('cmd') == 'chime_off':
