@@ -47,7 +47,13 @@ def do_arm(clnt, args):
 
 
 def do_chime(clnt, args):
-    clnt.chime()
+    if args.command == 'chime-on':
+        mode = 'on'
+    elif args.command == 'chime-off':
+        mode = 'off'
+    else:
+        mode = 'toggle'
+    clnt.chime(mode)
 
 def do_chime_on(clnt, args):
     clnt.chime_on()
@@ -159,7 +165,7 @@ def main():
         do_list(clnt, args)
     elif args.command in ['arm', 'arm-stay', 'arm-exit', 'arm-auto']:
         do_arm(clnt, args)
-    elif args.command == 'chime':
+    elif args.command in ['chime', 'chime-on', 'chime-off', 'chime-toggle']:
         do_chime(clnt, args)
     elif args.command == 'chime-on':
         do_chime_on(clnt, args)
