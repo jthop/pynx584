@@ -3,7 +3,7 @@ import os
 import threading
 
 #custom standardized logging
-from config import LOGGER as LOG
+from log_config import LOGGER as LOG
 LOG.info('starting pynx584 controller')
 
 def main():
