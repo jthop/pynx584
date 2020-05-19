@@ -2,8 +2,10 @@ import flask
 import json
 import logging
 
+import config
+from config import LOGGER as LOG
+LOG.info(f'starting pynx584 API v{config.__VERSION__}')
 
-LOG = logging.getLogger('api')
 CONTROLLER = None
 app = flask.Flask('nx584')
 
