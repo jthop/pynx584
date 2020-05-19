@@ -2,6 +2,9 @@ import argparse
 import os
 import threading
 
+from nx584 import api
+from nx584 import controller
+
 #custom standardized logging
 from nx584.log_config import LOGGER as LOG
 LOG.info('starting pynx584 controller')
