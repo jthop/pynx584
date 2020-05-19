@@ -6,8 +6,8 @@ import logging
 from nx584 import api
 from nx584 import controller
 
-#custom standardized logging
-LOG = logging.getLogger(__name__)
+import nx584.log_config as _logging
+LOG = _logging.LOGGER
 
 def main():
     parser = argparse.ArgumentParser()
