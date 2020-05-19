@@ -2,8 +2,9 @@ import flask
 import json
 
 #custom standardized logging
-from nx584.log_config import LOGGER as LOG
-LOG.info('starting pynx584 API')
+import nx584.log_config
+LOG = log_config.LOGGER
+LOG.info('starting pynx584 controller')
 
 CONTROLLER = None
 app = flask.Flask('nx584')
