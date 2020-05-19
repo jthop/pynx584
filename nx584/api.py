@@ -2,7 +2,7 @@ import flask
 import json
 
 #custom standardized logging
-from config import LOGGER as LOG
+from log_config import LOGGER as LOG
 LOG.info('starting pynx584 API')
 
 CONTROLLER = None
