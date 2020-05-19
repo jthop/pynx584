@@ -55,11 +55,6 @@ def do_chime(clnt, args):
         mode = 'toggle'
     clnt.chime(mode)
 
-def do_chime_on(clnt, args):
-    clnt.chime_on()
-
-def do_chime_off(clnt, args):
-    clnt.chime_off()
     
 def do_disarm(clnt, args):
     if not args.master:
