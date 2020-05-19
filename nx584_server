@@ -1,9 +1,4 @@
 #!/usr/bin/python
-  
-import logging
 from nx584 import main
-
-import nx584.log_config as log
-log.LOGGER.info('test')
 
 main.main()
