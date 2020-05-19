@@ -17,7 +17,7 @@ from nx584 import model
 import logging
 
 #custom standardized logging
-LOG = logging.getLogger(__name__)
+LOG = logging.getLogger('pynx584')
 
 
 def parse_ascii(data):
