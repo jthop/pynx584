@@ -1,6 +1,5 @@
 import flask
 import json
-import logging
 
 #custom standardized logging
 from config import LOGGER as LOG
