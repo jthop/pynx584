@@ -3,7 +3,7 @@ import json
 import logging
 
 #custom standardized logging
-LOGGER = logging.getLogger('pynx584')
+LOG = logging.getLogger('pynx584')
 
 CONTROLLER = None
 app = flask.Flask('nx584')
