@@ -254,13 +254,16 @@ class NXController(object):
         self._queue.append([0x3E, 0x00, partition])
 
     def chime(self, partition=1):
+        #toggle chime mode
         self._queue.append([0x3E, 0x01, partition])
         
     def chime_on(self, partition=1):
+        #only toggle chime if off
         if 'Chime mode on' not in self.partitions[partition].condition_flags:
             self._queue.append([0x3E, 0x01, partition])
 
     def chime_off(self, partition=1):
+        #only toggle chime if on
         if 'Chime mode on' in self.partitions[partition].condition_flags:
             self._queue.append([0x3E, 0x01, partition])
         
@@ -273,10 +276,7 @@ class NXController(object):
     def disarm(self, master_pin, partition=1):
         self._queue.append([0x3C] +
                            make_pin_buffer(master_pin) +
-                           [0x01, partition])
-        #turn on chime with each disarm
-        if 'Chime mode on' not in self.partitions[partition].condition_flags:
-            self._queue.append([0x3E, 0x01, partition])        
+                           [0x01, partition])    
         
     def zone_bypass_toggle(self, zone):
         self._queue.append([0x3F, zone - 1])
