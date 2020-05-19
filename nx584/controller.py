@@ -3,7 +3,6 @@ try:
 except ImportError:
     import configparser
 import datetime
-import logging
 import serial
 import socket
 import time
