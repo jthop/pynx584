@@ -14,8 +14,9 @@ from nx584 import event_queue
 from nx584 import mail
 from nx584 import model
 
-
-LOG = logging.getLogger('controller')
+#custom standardized logging
+from nx584.log import LOGGER as LOG
+LOG.info('starting pynx584 controller')
 
 
 def parse_ascii(data):
