@@ -39,10 +39,13 @@ class Client(object):
                     'master_pin': master_pin})
         return r.status_code == 200
     
-    def chime(self):
+    def chime(self, state='toggle'):
+        if state not in ['toggle', 'on', 'off']:
+            raise Exception('Invalid chime state')
         r = self._session.get(
             self._url + '/command',
-            params={'cmd': 'chime'})
+            params={'cmd': 'chime',
+                    'state': state})
         return r.status_code == 200
 
     def chime_on(self):
