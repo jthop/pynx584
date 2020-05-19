@@ -14,7 +14,7 @@ from nx584 import mail
 from nx584 import model
 
 #custom standardized logging
-from log_config import LOGGER as LOG
+from nx584.log_config import LOGGER as LOG
 LOG.info('starting pynx584 controller')
 
 
