@@ -2,12 +2,12 @@ import os
 import logging
 import logging.handlers
 
-__VERSION__ = '0.0.4'
+__VERSION__ = '0.0.5'
 LOG_FORMAT = '%(asctime)-15s %(module)s %(levelname)s %(message)s'
 SYSLOG_HANDLER = logging.handlers.SysLogHandler(address = '/dev/log')
 STREAM_HANDLER = logging.StreamHandler()
     
-LOGGER = logging.getLogger(__name__)
+LOGGER = logging.getLogger('pynx584')
 LOGGER.setLevel(logging.DEBUG)
 formatter = logging.Formatter(LOG_FORMAT)
 
