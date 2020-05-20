@@ -154,7 +154,7 @@ def do_version(clnt, args):
 
 def main():
     args = parse_args()
-    url = 'http://%s:%s' % tuple(args.host.split(':', 1))
+    url = f'http://{args.host}'
     clnt = client.Client(url)
     if args.command == 'list':
         do_list(clnt, args)
