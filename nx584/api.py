@@ -88,7 +88,7 @@ def command():
         else:
             state = CONTROLLER.chime()
             result = {"state": int(state)}
-        return flask.Response(result,
+        return flask.Response(json.dumps(result),
                       mimetype='application/json')
     
     return flask.Response()
