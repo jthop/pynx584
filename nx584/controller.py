@@ -254,8 +254,12 @@ class NXController(object):
         self._queue.append([0x3E, 0x00, partition])
 
     def chime(self, partition=1):
-        #toggle chime mode
+        #toggle chime mode, return True if chime WILL BE ON
+        currently_on = False
+        if 'Chime mode on' in self.partitions[partition].condition_flags:
+            currently_on = True
         self._queue.append([0x3E, 0x01, partition])
+        return not currently_on
         
     def chime_on(self, partition=1):
         #only toggle chime if off
