@@ -74,24 +74,23 @@ def command():
         elif args.get('type') == 'exit':
             CONTROLLER.arm_exit()
         else:
-            CONTROLLER.arm_auto()
+            CONTROLLER.arm_auto()       
+    elif args.get('cmd') == 'disarm':
+        CONTROLLER.disarm(args.get('master_pin'))
+        
     elif args.get('cmd') == 'chime':
         if args.get('state') == 'on':
             CONTROLLER.chime_on()
+            result = {"state": 1}
         elif args.get('state') == 'off':
             CONTROLLER.chime_off()
+            result = {"state": 0}
         else:
             state = CONTROLLER.chime()
             result = {"state": int(state)}
-            return flask.Response(result,
-                          mimetype='application/json')
-        
-    elif args.get('cmd') == 'chime_on':
-        CONTROLLER.chime_on()
-    elif args.get('cmd') == 'chime_off':
-        CONTROLLER.chime_off()
-    elif args.get('cmd') == 'disarm':
-        CONTROLLER.disarm(args.get('master_pin'))
+        return flask.Response(result,
+                      mimetype='application/json')
+    
     return flask.Response()
 
 
