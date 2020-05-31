@@ -84,16 +84,11 @@ def command():
     elif args.get('cmd') == 'chime':
         if args.get('state') == 'on':
             CONTROLLER.chime_on()
-            result = {"state": 1}
         elif args.get('state') == 'off':
             CONTROLLER.chime_off()
-            result = {"state": 0}
         else:
-            state = CONTROLLER.chime()
-            result = {"state": int(state)}
-        return flask.Response(json.dumps(result),
-                      mimetype='application/json')
-    
+           CONTROLLER.chime()
+        
     return flask.Response()
 
 
