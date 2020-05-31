@@ -1,6 +1,7 @@
 import flask
 import json
 import logging
+import time
 
 #custom standardized logging
 LOG = logging.getLogger('pynx584')
@@ -69,12 +70,14 @@ def index_partitions():
 def command():
     args = flask.request.args
     if args.get('cmd') == 'arm':
+
         if args.get('type') == 'stay':
             CONTROLLER.arm_stay()
         elif args.get('type') == 'exit':
             CONTROLLER.arm_exit()
         else:
-            CONTROLLER.arm_auto()       
+            CONTROLLER.arm_auto()
+                    
     elif args.get('cmd') == 'disarm':
         CONTROLLER.disarm(args.get('master_pin'))
         
