@@ -7,7 +7,7 @@ from nx584 import api
 from nx584 import controller
 
 import nx584.log_config as _logging
-LOG = _logging.LOGGER
+LOG = _logging.logger
 
 def main():
     parser = argparse.ArgumentParser()
