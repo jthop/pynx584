@@ -272,12 +272,7 @@ class NXController(object):
         self._queue.append([0x3E, 0x00, partition])
         
     def arm_exit(self, partition=1):
-        n = 0
-        while n < 4:
-            if "Ready to arm" in self.partitions[partition].condition_flags:
-                self._queue.append([0x3E, 0x02, partition])
-                break
-            n += 1
+        self._queue.append([0x3E, 0x02, partition])
 
     def arm_auto(self, partition=1):
         self._queue.append([0x3D, 0x05, 0x01, 0x01])
