@@ -266,13 +266,18 @@ class NXController(object):
     def chime_off(self, partition=1):
         #only toggle chime if on
         if 'Chime mode on' in self.partitions[partition].condition_flags:
-            self._queue.append([0x3E, 0x01, partition])        
+            self._queue.append([0x3E, 0x01, partition]) 
+ 
     def arm_stay(self, partition=1):
         self._queue.append([0x3E, 0x00, partition])
         
     def arm_exit(self, partition=1):
-        #"Ready to arm" in self.partitions[partition].condition_flags
-        self._queue.append([0x3E, 0x02, partition])
+        n = 0
+        while n < 4:
+            if "Ready to arm" in self.partitions[partition].condition_flags:
+                self._queue.append([0x3E, 0x02, partition])
+                break
+            n += 1
 
     def arm_auto(self, partition=1):
         self._queue.append([0x3D, 0x05, 0x01, 0x01])
