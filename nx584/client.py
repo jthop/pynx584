@@ -46,10 +46,7 @@ class Client(object):
             self._url + '/command',
             params={'cmd': 'chime',
                     'state': state})
-        
-        if r.status_code == 200:
-            return r.json()['state']
-        return False
+        return r.status_code == 200
 
     def set_bypass(self, zone, bypass):
         data = {'bypassed': bypass}
