@@ -12,7 +12,9 @@ Install Locally
 ::
 
  # pip install pynx584
+ 
  OR
+ 
  # git clone https://github.com/jthop/pynx584.git
  # then cd pynx584
  # pip install -e .
@@ -21,7 +23,7 @@ The server must be run on a machine with connectivity to the panel,
 which can be a local serial port, or a Serial-over-LAN device (i.e. a
 TCP socket). For example::
 
- # nx584_server --serial /dev/serial0 --listen 192.168.29.12  --baudrate 9600
+ # nx584_server --serial /dev/serial0 --baudrate 9600 --listen 192.168.29.12 --config /home/pi/conf/pynx584.ini
 
 or::
 
