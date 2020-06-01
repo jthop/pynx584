@@ -13,7 +13,9 @@ Install Locally
 
  # pip install pynx584
  OR
- # python -m pip install git+https://github.com/jthop/pynx584.git
+ # git clone https://github.com/jthop/pynx584.git
+ # then cd pynx584
+ # pip install -e .
 
 The server must be run on a machine with connectivity to the panel,
 which can be a local serial port, or a Serial-over-LAN device (i.e. a
