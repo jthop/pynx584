@@ -5,7 +5,7 @@ After=network.target
 [Service] 
 Type=simple 
 User=pi 
-WorkingDirectory=/home/pi/ 
+WorkingDirectory=/home/pi/alarm/pynx584
 ExecStart=/home/pi/alarm/nx584_server --serial /dev/serial0 --baudrate 9600 --listen 192.168.29.12 --config /home/pi/conf/pynx584.ini
 Restart=on-failure
 
