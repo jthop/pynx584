@@ -348,7 +348,6 @@ class NXController(object):
 
     def process_msg_4(self, frame):
         # Zone Status
-        # SENSOR UPDATES HERE
         zone = self._get_zone(frame.data[0] + 1)
         condition = frame.data[5]
         types = frame.data[2:5]
@@ -435,9 +434,6 @@ class NXController(object):
         self.event_queue.push(event)
 
         if changed:
-            """PARTITION STATUS CHANGES, GOOD SPOT TO USE TO
-            BROADCAST TO MQTT TOPIC"""
-            
             mail.send_partition_email(self._config, partition,
                                       deasserted, asserted)
 
