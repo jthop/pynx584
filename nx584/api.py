@@ -175,6 +175,9 @@ def get_events():
                                       'index': index}),
                           mimetype='application/json')
 
+@app.route('/set_time')
+def set_time():
+    return flask.Response()
 
 @app.route('/version')
 def get_version():
