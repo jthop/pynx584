@@ -4,7 +4,7 @@ import logging
 import time
 
 #custom standardized logging
-LOG = logging.getLogger('pynx584')
+logger = logging.getLogger('pynx584')
 
 CONTROLLER = None
 app = flask.Flask('nx584')
@@ -51,7 +51,7 @@ def index_zones():
         return flask.Response(result,
                               mimetype='application/json')
     except Exception as e:
-        LOG.exception('Failed to index zones')
+        logger.exception('Failed to index zones')
 
 
 @app.route('/partitions')
@@ -63,7 +63,7 @@ def index_partitions():
         return flask.Response(result,
                               mimetype='application/json')
     except Exception as e:
-        LOG.exception('Failed to index partitions')
+        logger.exception('Failed to index partitions')
 
 
 @app.route('/command')
