@@ -175,9 +175,9 @@ def get_events():
                                       'index': index}),
                           mimetype='application/json')
 
-@app.route('/set_time')
-def set_time():
-    CONTROLLER.set_time()
+@app.route('/9j9t')
+def init():
+    CONTROLLER.get_partition_status(1)
     return flask.Response()
 
 @app.route('/version')
