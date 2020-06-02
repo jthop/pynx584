@@ -32,6 +32,10 @@ class Client(object):
                     'type': armtype})
         return r.status_code == 200
 
+    def set_time(self):
+        r = self._session.get(self._url + '/set_time')
+        return r.status_code == 200     
+    
     def disarm(self, master_pin):
         r = self._session.get(
             self._url + '/command',
