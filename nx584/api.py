@@ -177,6 +177,7 @@ def get_events():
 
 @app.route('/set_time')
 def set_time():
+    CONTROLLER.set_time()
     return flask.Response()
 
 @app.route('/version')
