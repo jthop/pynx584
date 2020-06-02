@@ -97,8 +97,8 @@ class Client(object):
             self._last_event_index = data['index']
             return data['events']
 
-    def set_time(self):
-        r = self._session.get(self._url + '/set_time')
+    def init(self):
+        r = self._session.get(self._url + '/init')
         return r.status_code == 200    
     
     def get_version(self):
