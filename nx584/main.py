@@ -7,7 +7,7 @@ from nx584 import api
 from nx584 import controller
 
 import nx584.log_config as _logging
-LOG = _logging.logger
+logger = _logging.logger
 
 def main():
     parser = argparse.ArgumentParser()
@@ -30,7 +30,7 @@ def main():
                         help='Listen port (defaults to 5007)')
     args = parser.parse_args()
 
-    LOG.info('Client Ready')
+    logger.info('Client Ready')
 
     if args.connect:
         host, port = args.connect.split(':')
@@ -40,7 +40,7 @@ def main():
         ctrl = controller.NXController((args.serial, args.baudrate),
                                        args.config)
     else:
-        LOG.error('Either host:port or serial and baudrate are required')
+        logger.error('Either host:port or serial and baudrate are required')
         return
 
     api.CONTROLLER = ctrl
