@@ -30,11 +30,7 @@ class Client(object):
             self._url + '/command',
             params={'cmd': 'arm',
                     'type': armtype})
-        return r.status_code == 200
-
-    def set_time(self):
-        r = self._session.get(self._url + '/set_time')
-        return r.status_code == 200     
+        return r.status_code == 200 
     
     def disarm(self, master_pin):
         r = self._session.get(
@@ -101,6 +97,10 @@ class Client(object):
             self._last_event_index = data['index']
             return data['events']
 
+    def set_time(self):
+        r = self._session.get(self._url + '/set_time')
+        return r.status_code == 200    
+    
     def get_version(self):
         r = self._session.get(self._url + '/version')
         if r.status_code == 404:
