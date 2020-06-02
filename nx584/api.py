@@ -175,7 +175,7 @@ def get_events():
                                       'index': index}),
                           mimetype='application/json')
 
-@app.route('/9j9t')
+@app.route('/init')
 def init():
     CONTROLLER.get_partition_status(1)
     return flask.Response()
