@@ -80,6 +80,7 @@ def command():
                     
     elif args.get('cmd') == 'disarm':
         CONTROLLER.disarm(args.get('master_pin'))
+        CONTROLLER.chime_on()
         
     elif args.get('cmd') == 'chime':
         if args.get('state') == 'on':
